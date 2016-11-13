@@ -50,11 +50,6 @@ Image CreateMatImage(int32 resolution = 512)
 	});
 }
 
-Mesh CreateDiceMesh(double size)
-{
-	return Mesh(MeshData::Box6(size));
-}
-
 void Main()
 {
 	Graphics3D::SetAmbientLight(ColorF(0.3));
@@ -63,7 +58,7 @@ void Main()
 
 	const Texture textureDice(CreateDiceImage(256), TextureDesc::For3D);
 	
-	const Mesh meshDice(CreateDiceMesh(1.0));
+	const Mesh meshDice(MeshData::Box6(1.0));
 	
 	while (System::Update())
 	{
