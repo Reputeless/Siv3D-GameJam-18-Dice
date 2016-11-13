@@ -39,7 +39,7 @@ Image CreateDiceImage(int32 resolution = 128)
 	Circle(r * 273, r * 150, r * 11).write(image, Palette::Black);
 	Circle(r * 273, r * 178, r * 11).write(image, Palette::Black);
 
-	return image;
+	return image.fit(resolution, resolution);
 }
 
 Image CreateMatImage(int32 resolution = 512)
@@ -57,9 +57,9 @@ void Main()
 	const Texture textureMat(CreateMatImage(512), TextureDesc::For3D);
 
 	const Texture textureDice(CreateDiceImage(256), TextureDesc::For3D);
-	
+
 	const Mesh meshDice(MeshData::Box6(1.0));
-	
+
 	while (System::Update())
 	{
 		Graphics3D::FreeCamera();
